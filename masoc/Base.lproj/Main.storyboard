@@ -100,7 +100,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="zog-sP-mNL" secondAttribute="height" multiplier="1:1" id="UHZ-fa-uIa"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="btnTap:" destination="qby-Ao-cO0" eventType="touchUpInside" id="xxg-Iv-ayc"/>
                                                         </connections>
@@ -110,7 +109,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="7Q4-ij-cRA" secondAttribute="height" multiplier="1:1" id="eh0-rV-u30"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="redTap:" destination="qby-Ao-cO0" eventType="touchUpInside" id="avs-MS-HjE"/>
                                                         </connections>
@@ -125,7 +123,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="jbX-Ii-5Dw" secondAttribute="height" multiplier="1:1" id="bXe-W1-Eb4"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="orangeTap:" destination="qby-Ao-cO0" eventType="touchUpInside" id="Piz-uv-OOY"/>
                                                         </connections>
@@ -135,7 +132,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="AA8-Bk-hYo" secondAttribute="height" multiplier="1:1" id="O3Y-rz-4gy"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="greenTap:" destination="qby-Ao-cO0" eventType="touchUpInside" id="eIs-d8-mdK"/>
                                                         </connections>
@@ -150,7 +146,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="kxG-q4-Es9" secondAttribute="height" multiplier="1:1" id="MxA-ry-jvw"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="yellowTap:" destination="qby-Ao-cO0" eventType="touchUpInside" id="sSv-vF-kRU"/>
                                                         </connections>
@@ -160,7 +155,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mrf-K6-6wj" secondAttribute="height" multiplier="1:1" id="vdb-49-7pm"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="purpleTap:" destination="qby-Ao-cO0" eventType="touchUpInside" id="BSd-bj-CIa"/>
                                                         </connections>

@@ -197,6 +197,16 @@ class SecondViewController: UIViewController {
         setUp(btns: [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidLayoutSubviews() {
+        blueBtn.layer.cornerRadius = 0.5 * blueBtn.bounds.size.width
+        redBtn.layer.cornerRadius = 0.5 * redBtn.bounds.size.width
+        orangeBtn.layer.cornerRadius = 0.5 * orangeBtn.bounds.size.width
+        greenBtn.layer.cornerRadius = 0.5 * greenBtn.bounds.size.width
+        yellowBtn.layer.cornerRadius = 0.5 * yellowBtn.bounds.size.width
+        purpleBtn.layer.cornerRadius = 0.5 * purpleBtn.bounds.size.width
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
