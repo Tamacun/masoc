@@ -24,6 +24,8 @@ class SecondViewController: UIViewController {
         }
     }
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var nextLevel: UIButton!
+    @IBOutlet weak var goalLabel: UILabel!
     
     
     //MARK: UI Buttons
@@ -31,19 +33,25 @@ class SecondViewController: UIViewController {
         counter = 0
         setUp(btns: [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
     }
+    @IBAction func nextLevel(_ sender: UIButton) {
+        setUp(btns: [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
+        
+    }
     
+    //MARK: Current Level
+    var currentLevel = Level.Two()
     
     //MARK: Color Arrays
-    let blueArray = [UIColor.blue, UIColor.green, UIColor.yellow, UIColor.red, UIColor.purple, UIColor.orange]
-    let redArray = [UIColor.red, UIColor.orange, UIColor.blue, UIColor.green, UIColor.purple,
-                    UIColor.yellow]
-    let orangeArray = [UIColor.orange, UIColor.blue, UIColor.green, UIColor.purple, UIColor.yellow, UIColor.red]
-    let greenArray = [UIColor.green, UIColor.purple, UIColor.yellow, UIColor.orange, UIColor.blue, UIColor.red]
-    let yellowArray = [UIColor.yellow, UIColor.blue, UIColor.purple, UIColor.red, UIColor.orange, UIColor.green]
-    let purpleArray = [UIColor.purple, UIColor.red, UIColor.orange, UIColor.green, UIColor.blue, UIColor.yellow]
+    lazy var blueArray = currentLevel.btnOneArray
+    lazy var redArray = currentLevel.btnTwoArray
+    lazy var orangeArray = currentLevel.btnThreeArray
+    lazy var greenArray = currentLevel.btnFourArray
+    lazy var yellowArray = currentLevel.btnFiveArray
+    lazy var purpleArray = currentLevel.btnSixArray
+    
     
     //MARK: Button Tap Handlers
-    @IBAction func btnTap(_ sender: UIButton) {
+    @IBAction func blueTap(_ sender: UIButton) {
         let swapColor = mainSwap(currentColor: blueBtn.backgroundColor!, neighborColor: redBtn.backgroundColor!, currentArray: blueArray, neighborArray: redArray)
         blueBtn.backgroundColor = swapColor.nextColor
         redBtn.backgroundColor = swapColor.nextNeighborColor
@@ -112,12 +120,16 @@ class SecondViewController: UIViewController {
     
     //MARK: Set Colors and Shadows
     func setUp(btns:[UIButton]){
-        blueBtn.backgroundColor = UIColor.blue
-        redBtn.backgroundColor = UIColor.red
-        orangeBtn.backgroundColor = UIColor.orange
-        greenBtn.backgroundColor = UIColor.green
-        yellowBtn.backgroundColor = UIColor.yellow
-        purpleBtn.backgroundColor = UIColor.purple
+        blueBtn.backgroundColor = currentLevel.btn1
+        redBtn.backgroundColor = currentLevel.btn2
+        orangeBtn.backgroundColor = currentLevel.btn3
+        greenBtn.backgroundColor = currentLevel.btn4
+        yellowBtn.backgroundColor = currentLevel.btn5
+        purpleBtn.backgroundColor = currentLevel.btn6
+        
+        nextLevel.isHidden = true
+        counter = 0
+        goalLabel.text = currentLevel.goal
         
         //Set MainView Shadow
         mainView.layer.shadowColor = UIColor.black.cgColor
@@ -189,6 +201,8 @@ class SecondViewController: UIViewController {
         greenBtn.isEnabled = false
         yellowBtn.isEnabled = false
         purpleBtn.isEnabled = false
+        
+        nextLevel.isHidden = false
         
     }
     

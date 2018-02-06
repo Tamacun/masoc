@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A41DE602029B02E00B580EC /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41DE5F2029B02E00B580EC /* Levels.swift */; };
 		0A8B545E1FE5559400E9212A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B545D1FE5559400E9212A /* SecondViewController.swift */; };
 		0AC68EDC1FE3FAB300F96D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68EDB1FE3FAB300F96D20 /* AppDelegate.swift */; };
 		0AC68EDE1FE3FAB300F96D20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC68EDD1FE3FAB300F96D20 /* ViewController.swift */; };
@@ -27,7 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A8B545D1FE5559400E9212A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		0A41DE5F2029B02E00B580EC /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		0A8B545D1FE5559400E9212A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = ../SecondViewController.swift; sourceTree = "<group>"; };
 		0AC68ED81FE3FAB300F96D20 /* masoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = masoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC68EDB1FE3FAB300F96D20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC68EDD1FE3FAB300F96D20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A90223A2029CC830023464D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A41DE5F2029B02E00B580EC /* Levels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0A90223B2029CCA00023464D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AC68EE41FE3FAB300F96D20 /* LaunchScreen.storyboard */,
+				0AC68EDF1FE3FAB300F96D20 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0A90223C2029CCA70023464D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0AC68EDD1FE3FAB300F96D20 /* ViewController.swift */,
+				0A8B545D1FE5559400E9212A /* SecondViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0AC68ECF1FE3FAB200F96D20 = {
 			isa = PBXGroup;
 			children = (
@@ -80,11 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				0AC68EDB1FE3FAB300F96D20 /* AppDelegate.swift */,
-				0AC68EDD1FE3FAB300F96D20 /* ViewController.swift */,
-				0A8B545D1FE5559400E9212A /* SecondViewController.swift */,
-				0AC68EDF1FE3FAB300F96D20 /* Main.storyboard */,
+				0A90223A2029CC830023464D /* Model */,
+				0A90223B2029CCA00023464D /* View */,
+				0A90223C2029CCA70023464D /* Controller */,
 				0AC68EE21FE3FAB300F96D20 /* Assets.xcassets */,
-				0AC68EE41FE3FAB300F96D20 /* LaunchScreen.storyboard */,
 				0AC68EE71FE3FAB300F96D20 /* Info.plist */,
 			);
 			path = masoc;
@@ -204,6 +231,7 @@
 			files = (
 				0A8B545E1FE5559400E9212A /* SecondViewController.swift in Sources */,
 				0AC68EDE1FE3FAB300F96D20 /* ViewController.swift in Sources */,
+				0A41DE602029B02E00B580EC /* Levels.swift in Sources */,
 				0AC68EDC1FE3FAB300F96D20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
