@@ -33,9 +33,9 @@ class ViewController: UIViewController {
         if defaults.integer(forKey: "CurrentLevel") < 1 {
             defaults.set(1, forKey: "CurrentLevel")
         }
-        if defaults.object(forKey: "LevelScore") == nil {
+        if defaults.object(forKey: "Level: Score") == nil {
             let levelScore = [Int: Int]()
-            defaults.set(levelScore, forKey: "LevelScore")
+            defaults.set(levelScore, forKey: "Level: Score")
         }
     }
     
@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         initLevel()
+        print(defaults.object(forKey: "Level: Store"))
     }
 
     override func didReceiveMemoryWarning() {

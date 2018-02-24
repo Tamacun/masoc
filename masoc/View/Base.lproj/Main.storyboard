@@ -174,11 +174,20 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvu-WT-gxS">
+                                <rect key="frame" x="164" y="548" width="48" height="48"/>
+                                <state key="normal" backgroundImage="home"/>
+                                <connections>
+                                    <segue destination="QV0-me-QPW" kind="show" id="2tn-5r-P1X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.96078431369999995" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="0fk-9p-YtO" firstAttribute="centerX" secondItem="Qkb-pb-E7d" secondAttribute="centerX" id="5fy-Jj-hHS"/>
                             <constraint firstItem="0fk-9p-YtO" firstAttribute="centerY" secondItem="Qkb-pb-E7d" secondAttribute="centerY" id="TRA-oD-J2c"/>
+                            <constraint firstItem="xvu-WT-gxS" firstAttribute="top" secondItem="0fk-9p-YtO" secondAttribute="bottom" constant="50" id="YJ6-Ae-ij7"/>
+                            <constraint firstItem="xvu-WT-gxS" firstAttribute="centerX" secondItem="Qkb-pb-E7d" secondAttribute="centerX" id="ZNi-hl-Ac2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nDk-fV-CBq"/>
                     </view>
@@ -231,22 +240,31 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="083-Tw-jfk" userLabel="High Score Label">
-                                        <rect key="frame" x="15" y="11.999999999999998" width="10.333333333333336" height="20.333333333333329"/>
+                                        <rect key="frame" x="37" y="11.999999999999998" width="10.333333333333336" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk5-FW-Za1" userLabel="Back Button">
+                                        <rect key="frame" x="19" y="37.333333333333371" width="48" height="48"/>
+                                        <state key="normal" backgroundImage="backDark"/>
+                                        <connections>
+                                            <segue destination="kBL-YZ-omu" kind="show" id="dN0-hS-1ZX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="0aN-Id-IBd"/>
                                     <constraint firstItem="iJI-E5-fnN" firstAttribute="top" secondItem="Uqm-A2-g8I" secondAttribute="bottom" constant="5" id="1Qf-xB-Qfx"/>
                                     <constraint firstItem="ggr-uO-Kjw" firstAttribute="top" secondItem="Uqm-A2-g8I" secondAttribute="bottom" constant="5.0000000000000426" id="LyR-MD-YGr"/>
-                                    <constraint firstItem="083-Tw-jfk" firstAttribute="leading" secondItem="5be-Ds-LnB" secondAttribute="leading" constant="15" id="RlY-IK-9EQ"/>
+                                    <constraint firstItem="083-Tw-jfk" firstAttribute="leading" secondItem="dk5-FW-Za1" secondAttribute="leading" constant="18" id="RlY-IK-9EQ"/>
                                     <constraint firstItem="Uqm-A2-g8I" firstAttribute="top" secondItem="5be-Ds-LnB" secondAttribute="top" constant="12" id="TET-RJ-bao"/>
                                     <constraint firstAttribute="trailing" secondItem="iJI-E5-fnN" secondAttribute="trailing" constant="19" id="Xej-sI-EOc"/>
+                                    <constraint firstAttribute="leading" secondItem="dk5-FW-Za1" secondAttribute="leading" constant="-19" id="cHM-ul-HUI"/>
                                     <constraint firstItem="083-Tw-jfk" firstAttribute="top" secondItem="5be-Ds-LnB" secondAttribute="top" constant="12" id="iLD-ft-2g1"/>
                                     <constraint firstItem="Uqm-A2-g8I" firstAttribute="centerX" secondItem="5be-Ds-LnB" secondAttribute="centerX" id="jpX-4u-lLJ"/>
                                     <constraint firstItem="ggr-uO-Kjw" firstAttribute="centerX" secondItem="5be-Ds-LnB" secondAttribute="centerX" id="tWe-qk-V5H"/>
+                                    <constraint firstItem="dk5-FW-Za1" firstAttribute="top" secondItem="Uqm-A2-g8I" secondAttribute="bottom" constant="5" id="wyT-1r-QfD"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvr-6M-22V" userLabel="MainView">
@@ -391,10 +409,16 @@
         <image name="Image-8" width="48" height="48"/>
         <image name="Image-9" width="48" height="48"/>
         <image name="arrowDark" width="48" height="48"/>
+        <image name="backDark" width="48" height="48"/>
         <image name="eventDark" width="48" height="48"/>
+        <image name="home" width="48" height="48"/>
         <image name="motoDark" width="48" height="48"/>
         <image name="playDark" width="48" height="48"/>
         <image name="resetDark" width="48" height="48"/>
         <image name="settingsDark" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qRW-ER-V5q"/>
+        <segue reference="dN0-hS-1ZX"/>
+    </inferredMetricsTieBreakers>
 </document>

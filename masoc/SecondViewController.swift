@@ -154,12 +154,17 @@ class SecondViewController: UIViewController {
         levelDisplay.text = "Level \(levelCounter)"
         
         //Get High Score for this level
-        var highScores = defaults.object(forKey: "Level: Score") as! [Int: Int]
-        let currentHighScore = highScores[levelCounter]
+        var highScores = defaults.object(forKey: "Level: Score") as! [String: Int]
+        var currentHighScore = highScores[String(levelCounter)]
+        print(currentHighScore)
         if currentHighScore != nil {
-            highScoreLabel.isEnabled = true
+            highScoreLabel.isHidden = false
             highScoreLabel.text = "\(currentHighScore ?? 0)"
         }
+        else {
+            highScoreLabel.isHidden = true
+        }
+        print(highScores)
         
         
         
@@ -226,6 +231,9 @@ class SecondViewController: UIViewController {
         }
     }
     
+    //TEST: Making the levelScore Dict a class prop
+    var levelScore: [String: Int] = UserDefaults.standard.object(forKey: "Level: Score") as! [String : Int]
+    
     //MARK: Success
     func success() {
         blueBtn.isEnabled = false
@@ -237,10 +245,12 @@ class SecondViewController: UIViewController {
         
         nextLevel.isHidden = false
         
-        var levelScore = [Int: Int]()
-        levelScore = [levelCounter: counter] as [Int: Int]
-        defaults.set(levelScore, forKey: "Level: Score")
-
+        
+        if levelScore[String(levelCounter)]! > counter {
+            levelScore[String(levelCounter)] = counter
+            defaults.set(levelScore, forKey: "Level: Score")
+            print(defaults.object(forKey: "Level: Score"))
+        }
     }
     
     //MARK: Easy hacks
