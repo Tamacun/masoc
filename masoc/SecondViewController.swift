@@ -2,6 +2,8 @@
 //  SecondViewController.swift
 //  masoc
 //
+//-- Game Screen -- 
+//
 //  Created by Li on 12/16/17.
 //  Copyright © 2017 Li. All rights reserved.
 //
@@ -10,7 +12,14 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
-    //MARK: Variables
+    //MARK: Class References
+    var level = Level()
+    var levelCounter = UserDefaults.standard.integer(forKey: "CurrentLevel")
+    
+    //MARK: User Defaults
+    let defaults = UserDefaults.standard
+    
+    //MARK: Storyboard generated Variables (Buttons, Labels, Views)
     @IBOutlet weak var blueBtn: UIButton!
     @IBOutlet weak var redBtn: UIButton!
     @IBOutlet weak var orangeBtn: UIButton!
@@ -23,31 +32,31 @@ class SecondViewController: UIViewController {
             counterLabel.text = "\(counter)"
         }
     }
+    @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var nextLevel: UIButton!
-    @IBOutlet weak var goalLabel: UILabel!
+    @IBOutlet weak var goalIndic: UIView!
+    @IBOutlet weak var levelDisplay: UILabel!
     
     
     //MARK: UI Buttons
     @IBAction func resetBtn(_ sender: UIButton) {
         counter = 0
-        setUp(btns: [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
+        setUp(level, [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
     }
     @IBAction func nextLevel(_ sender: UIButton) {
-        setUp(btns: [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
-        
+        levelCounter += 1
+        setUp(level, [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
     }
-    
-    //MARK: Current Level
-    var currentLevel = Level.Two()
-    
+
+        
     //MARK: Color Arrays
-    lazy var blueArray = currentLevel.btnOneArray
-    lazy var redArray = currentLevel.btnTwoArray
-    lazy var orangeArray = currentLevel.btnThreeArray
-    lazy var greenArray = currentLevel.btnFourArray
-    lazy var yellowArray = currentLevel.btnFiveArray
-    lazy var purpleArray = currentLevel.btnSixArray
+    var blueArray: [UIColor] = []
+    var redArray: [UIColor] = []
+    var orangeArray: [UIColor] = []
+    var greenArray: [UIColor] = []
+    var yellowArray: [UIColor] = []
+    var purpleArray: [UIColor] = []
     
     
     //MARK: Button Tap Handlers
@@ -119,17 +128,41 @@ class SecondViewController: UIViewController {
     
     
     //MARK: Set Colors and Shadows
-    func setUp(btns:[UIButton]){
-        blueBtn.backgroundColor = currentLevel.btn1
-        redBtn.backgroundColor = currentLevel.btn2
-        orangeBtn.backgroundColor = currentLevel.btn3
-        greenBtn.backgroundColor = currentLevel.btn4
-        yellowBtn.backgroundColor = currentLevel.btn5
-        purpleBtn.backgroundColor = currentLevel.btn6
+    func setUp(_ d:Level, _ btns:[UIButton]){
         
+        //Setup Buttons
+        d.changeColors(levelCounter)
+        blueBtn.backgroundColor = d.btn1
+        redBtn.backgroundColor = d.btn2
+        orangeBtn.backgroundColor = d.btn3
+        greenBtn.backgroundColor = d.btn4
+        yellowBtn.backgroundColor = d.btn5
+        purpleBtn.backgroundColor = d.btn6
+        
+        //Setup Arrays
+        blueArray = d.array1
+        redArray = d.array2
+        orangeArray = d.array3
+        greenArray = d.array4
+        yellowArray = d.array5
+        purpleArray = d.array6
+        
+        //Misc Setup [Next Level Button, Counter, Goal Indicator, Level Display, High Score]
         nextLevel.isHidden = true
         counter = 0
-        goalLabel.text = currentLevel.goal
+        goalIndic.backgroundColor = d.goal
+        levelDisplay.text = "Level \(levelCounter)"
+        
+        //Get High Score for this level
+        var highScores = defaults.object(forKey: "Level: Score") as! [Int: Int]
+        let currentHighScore = highScores[levelCounter]
+        if currentHighScore != nil {
+            highScoreLabel.isEnabled = true
+            highScoreLabel.text = "\(currentHighScore ?? 0)"
+        }
+        
+        
+        
         
         //Set MainView Shadow
         mainView.layer.shadowColor = UIColor.black.cgColor
@@ -139,12 +172,12 @@ class SecondViewController: UIViewController {
         
         
         for btn in btns{
-            //Set Shadows
+            /*//Set Shadows
             btn.layer.shadowColor = UIColor.black.cgColor
             btn.layer.shadowOpacity = 0.5
             btn.layer.shadowOffset = CGSize(width: 0, height: 10)
             btn.layer.shadowRadius = 4
-            btn.layer.shouldRasterize = true
+            btn.layer.shouldRasterize = true */
             //Enable all buttons
             btn.isEnabled = true
         }
@@ -185,10 +218,10 @@ class SecondViewController: UIViewController {
     
     //MARK: Success Check
     func successCheck() -> Bool {
-        if(blueBtn.backgroundColor == redBtn.backgroundColor && redBtn.backgroundColor == orangeBtn
-            .backgroundColor && orangeBtn.backgroundColor == greenBtn.backgroundColor && greenBtn.backgroundColor == yellowBtn.backgroundColor && yellowBtn.backgroundColor == purpleBtn.backgroundColor){
+        if(blueBtn.backgroundColor == goalIndic.backgroundColor && redBtn.backgroundColor == goalIndic.backgroundColor && orangeBtn.backgroundColor == goalIndic.backgroundColor && greenBtn.backgroundColor == goalIndic.backgroundColor && yellowBtn.backgroundColor == goalIndic.backgroundColor && purpleBtn.backgroundColor == goalIndic.backgroundColor){
             return true
         } else {
+            print("All of them aren't \(goalIndic) yet")
             return false
         }
     }
@@ -204,21 +237,39 @@ class SecondViewController: UIViewController {
         
         nextLevel.isHidden = false
         
+        var levelScore = [Int: Int]()
+        levelScore = [levelCounter: counter] as [Int: Int]
+        defaults.set(levelScore, forKey: "Level: Score")
+
     }
     
+    //MARK: Easy hacks
+    @IBAction func finishLevel(_ sender: Any) {
+        blueBtn.backgroundColor = level.goal
+        redBtn.backgroundColor = level.goal
+        orangeBtn.backgroundColor = level.goal
+        greenBtn.backgroundColor = level.goal
+        yellowBtn.backgroundColor = level.goal
+        purpleBtn.backgroundColor = level.goal
+        
+        if (successCheck() == true) {
+            success()
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp(btns: [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
+        setUp(level, [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
         // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
-        blueBtn.layer.cornerRadius = 0.5 * blueBtn.bounds.size.width
+       /* blueBtn.layer.cornerRadius = 0.5 * blueBtn.bounds.size.width
         redBtn.layer.cornerRadius = 0.5 * redBtn.bounds.size.width
         orangeBtn.layer.cornerRadius = 0.5 * orangeBtn.bounds.size.width
         greenBtn.layer.cornerRadius = 0.5 * greenBtn.bounds.size.width
         yellowBtn.layer.cornerRadius = 0.5 * yellowBtn.bounds.size.width
-        purpleBtn.layer.cornerRadius = 0.5 * purpleBtn.bounds.size.width
+        purpleBtn.layer.cornerRadius = 0.5 * purpleBtn.bounds.size.width */
         
     }
 
