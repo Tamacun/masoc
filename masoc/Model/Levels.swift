@@ -70,14 +70,14 @@ class Level {
             self.btn5 = .yellow
             self.btn6 = .yellow
             
-            self.array1 = [.blue, .black, .orange, .red, .green, .yellow]
-            self.array2 = [.black, .orange, .blue, .yellow, .red, .green]
+            self.array1 = [.blue, .black, .yellow, .red, .green, .orange]
+            self.array2 = [.black, .yellow, .blue, .orange, .red, .green]
             self.array3 = [.orange, .green, .black, .red, .yellow, .blue]
             self.array4 = [.green, .orange, .blue, .red, .yellow, .black]
             self.array5 = [.yellow, .red, .blue, .black, .orange, .purple]
             self.array6 = [.red, .black, .blue, .orange, .green, .yellow]
             
-            self.goal = .orange
+            self.goal = .yellow
             
         case 4:
             self.btn1 = .red
@@ -87,7 +87,7 @@ class Level {
             self.btn5 = .red
             self.btn6 = .red
             
-            self.array1 = [.blue, .red, .orange, .purple, .green, .yellow]
+            self.array1 = [.red, .blue, .orange, .purple, .green, .yellow]
             self.array2 = [.red, .orange, .blue, .yellow, .purple, .green]
             self.array3 = [.orange, .green, .red, .purple, .blue, .yellow]
             self.array4 = [.green, .orange, .blue, .purple, .yellow, .red]
@@ -111,24 +111,24 @@ class Level {
             self.array5 = [.yellow, .purple, .red, .green, .orange, .blue]
             self.array6 = [.purple, .red, .blue, .orange, .green, .yellow]
             
-            self.goal = .orange
+            self.goal = .blue
         
         case 6:
             self.btn1 = .yellow
-            self.btn2 = .yellow
+            self.btn2 = .green
             self.btn3 = .orange
             self.btn4 = .green
             self.btn5 = .green
             self.btn6 = .green
             
-            self.array1 = [.blue, .red, .orange, .purple, .green, .yellow]
+            self.array1 = [.blue, .red, .orange, .purple, .yellow, .green]
             self.array2 = [.red, .orange, .blue, .yellow, .purple, .green]
             self.array3 = [.orange, .green, .red, .purple, .yellow, .blue]
             self.array4 = [.green, .orange, .blue, .purple, .yellow, .red]
             self.array5 = [.yellow, .purple, .red, .green, .orange, .purple]
             self.array6 = [.purple, .red, .blue, .orange, .green, .yellow]
         
-            self.goal = .purple
+            self.goal = .green
             
         case 7:
             self.btn1 = .yellow
@@ -143,9 +143,9 @@ class Level {
             self.array3 = [.orange, .green, .red, .purple, .yellow, .blue]
             self.array4 = [.green, .orange, .blue, .purple, .yellow, .red]
             self.array5 = [.yellow, .purple, .red, .blue, .orange, .purple]
-            self.array6 = [.purple, .red, .blue, .orange, .yellow, .green]
+            self.array6 = [.yellow, .red, .blue, .orange, .purple, .green]
             
-            self.goal = .yellow
+            self.goal = .purple
             
         case 8:
             self.btn1 = .yellow
@@ -155,14 +155,14 @@ class Level {
             self.btn5 = .orange
             self.btn6 = .orange
             
-            self.array1 = [.blue, .red, .orange, .blue, .green, .yellow]
+            self.array1 = [.blue, .red, .orange, .purple, .green, .yellow]
             self.array2 = [.red, .orange, .blue, .yellow, .purple, .green]
-            self.array3 = [.orange, .green, .orange, .purple, .yellow, .blue]
+            self.array3 = [.orange, .green, .red, .purple, .yellow, .blue]
             self.array4 = [.green, .orange, .blue, .purple, .yellow, .red]
-            self.array5 = [.yellow, .purple, .red, .red, .orange, .purple]
-            self.array6 = [.purple, .red, .blue, .orange, .green, .green]
+            self.array5 = [.yellow, .purple, .red, .blue, .orange, .green]
+            self.array6 = [.purple, .orange, .red, .blue, .yellow, .green]
             
-            self.goal = .orange
+            self.goal = .red
             
         case 9:
             self.btn1 = .purple
@@ -172,14 +172,14 @@ class Level {
             self.btn5 = .purple
             self.btn6 = .blue
             
-            self.array1 = [.blue, .red, .orange, .blue, .green, .yellow]
+            self.array1 = [.purple, .red, .orange, .blue, .green, .yellow]
             self.array2 = [.red, .orange, .blue, .yellow, .purple, .green]
-            self.array3 = [.orange, .green, .orange, .purple, .yellow, .blue]
+            self.array3 = [.orange, .green, .red, .purple, .yellow, .blue]
             self.array4 = [.green, .orange, .blue, .purple, .yellow, .red]
-            self.array5 = [.yellow, .purple, .red, .red, .orange, .purple]
-            self.array6 = [.purple, .red, .blue, .orange, .green, .green]
+            self.array5 = [.yellow, .blue, .red, .green, .orange, .purple]
+            self.array6 = [.purple, .red, .blue, .orange, .green, .yellow]
             
-            self.goal = .blue
+            self.goal = .red
             
         case 10:
             self.btn1 = .orange
@@ -193,10 +193,10 @@ class Level {
             self.array2 = [.red, .orange, .blue, .yellow, .purple, .green]
             self.array3 = [.orange, .green, .orange, .purple, .yellow, .blue]
             self.array4 = [.green, .orange, .blue, .purple, .yellow, .red]
-            self.array5 = [.yellow, .purple, .red, .red, .orange, .purple]
-            self.array6 = [.purple, .red, .blue, .orange, .green, .green]
+            self.array5 = [.yellow, .purple, .red, .green, .orange, .purple]
+            self.array6 = [.purple, .red, .blue, .orange, .yellow, .green]
             
-            self.goal = .red
+            self.goal = .orange
             
         default:
             print("Love you baby")
