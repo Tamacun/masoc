@@ -34,8 +34,9 @@ class ViewController: UIViewController {
             defaults.set(1, forKey: "CurrentLevel")
         }
         if defaults.object(forKey: "Level: Score") == nil {
-            let levelScore = [Int: Int]()
+            let levelScore: [String: Int] = ["One": 0]
             defaults.set(levelScore, forKey: "Level: Score")
+            print(defaults.object(forKey: "Level: Score"))
         }
     }
     
@@ -46,12 +47,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         initLevel()
-        print(defaults.object(forKey: "Level: Store"))
+        print("The current Hisgh Scores are \(defaults.object(forKey: "Level: Score"))")
+        print("The current level is \(defaults.integer(forKey: "CurrentLevel"))")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
 
 

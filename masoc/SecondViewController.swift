@@ -16,6 +16,11 @@ class SecondViewController: UIViewController {
     var level = Level()
     var levelCounter = UserDefaults.standard.integer(forKey: "CurrentLevel")
     
+    func whatLevel() {
+        print("The current level is \(levelCounter)")
+    }
+    
+    
     //MARK: User Defaults
     let defaults = UserDefaults.standard
     
@@ -46,6 +51,8 @@ class SecondViewController: UIViewController {
     }
     @IBAction func nextLevel(_ sender: UIButton) {
         levelCounter += 1
+        defaults.set(levelCounter, forKey: "CurrentLevel")
+        print("The current Level is \(defaults.object(forKey:"CurrentLevel"))")
         setUp(level, [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
     }
 
@@ -232,7 +239,7 @@ class SecondViewController: UIViewController {
     }
     
     //TEST: Making the levelScore Dict a class prop
-    var levelScore: [String: Int] = UserDefaults.standard.object(forKey: "Level: Score") as! [String : Int]
+    var levelScore: [String: Int] = UserDefaults.standard.object(forKey: "Level: Score") as! [String: Int]
     
     //MARK: Success
     func success() {
@@ -245,13 +252,19 @@ class SecondViewController: UIViewController {
         
         nextLevel.isHidden = false
         
-        
-        if levelScore[String(levelCounter)]! > counter {
+        //MARK: Set new high score IF it is better than previous
+        if levelScore[String(levelCounter)] == nil {
+            levelScore[String(levelCounter)] = counter
+            defaults.set(levelScore, forKey: "Level: Score")
+        }
+        else if levelScore[String(levelCounter)]! > counter {
             levelScore[String(levelCounter)] = counter
             defaults.set(levelScore, forKey: "Level: Score")
             print(defaults.object(forKey: "Level: Score"))
         }
-    }
+
+}
+    
     
     //MARK: Easy hacks
     @IBAction func finishLevel(_ sender: Any) {
@@ -271,6 +284,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         setUp(level, [blueBtn, redBtn, orangeBtn, greenBtn, yellowBtn, purpleBtn])
         // Do any additional setup after loading the view.
+        whatLevel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -286,6 +300,10 @@ class SecondViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
 

@@ -42,6 +42,10 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
 
     /*
     // MARK: - Navigation
