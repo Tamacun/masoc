@@ -43,6 +43,11 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var goalIndic: UIView!
     @IBOutlet weak var levelDisplay: UILabel!
     
+    //MARK: Tutorial Icons
+    @IBOutlet weak var goalTutorial: UIImageView!
+    @IBOutlet weak var buttonTutorial: UIImageView!
+    
+    
     
     //MARK: UI Buttons
     @IBAction func resetBtn(_ sender: UIButton) {
@@ -193,6 +198,17 @@ class SecondViewController: UIViewController {
             //Enable all buttons
             btn.isEnabled = true
         }
+        
+        //Tutorial Setup
+        if levelCounter < 2 {
+        goalTutorial.isHidden = false
+        buttonTutorial.isHidden = false
+        } else {
+            goalTutorial.isHidden = true
+            buttonTutorial.isHidden = true
+        }
+        
+        
     }
     
     //MARK: Main Swap Color Function
