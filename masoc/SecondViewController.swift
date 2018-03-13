@@ -201,8 +201,8 @@ class SecondViewController: UIViewController {
         
         //Tutorial Setup
         if levelCounter < 2 {
-        goalTutorial.isHidden = false
-        buttonTutorial.isHidden = false
+        goalTutorial.alpha = 0.8
+        buttonTutorial.alpha = 0
         } else {
             goalTutorial.isHidden = true
             buttonTutorial.isHidden = true
@@ -320,6 +320,19 @@ class SecondViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        
+        // Tutorial Animations
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 1, delay: 0.25, options: [.repeat, .autoreverse], animations: {
+            self.goalTutorial.alpha = 1.0
+            self.buttonTutorial.alpha = 1.0
+            
+            self.goalTutorial.frame.origin.x += 15
+        }
+        
+        )
+        
     }
     
 

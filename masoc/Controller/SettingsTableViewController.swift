@@ -122,10 +122,12 @@ class SettingsTableViewController: UITableViewController {
             
         case 1:
             let alert = UIAlertController(title: "Reset Scores?", message: "Do you want to reset High Scores to 0?", preferredStyle: .alert)
+            let resetHighscores = UIAlertAction(title: "Reset", style: .default) { (alert: UIAlertAction!) -> Void in UserDefaults.standard.set(["0":0], forKey: "Level: Score") }
             let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
                 //print("You pressed Cancel")
             }
             
+            alert.addAction(resetHighscores)
             alert.addAction(cancelAction)
             present(alert, animated: true, completion:nil)
         default:
