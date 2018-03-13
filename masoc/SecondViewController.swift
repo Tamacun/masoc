@@ -324,11 +324,18 @@ class SecondViewController: UIViewController {
         // Tutorial Animations
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 1, delay: 0.25, options: [.repeat, .autoreverse], animations: {
+        UIView.animate(withDuration: 1,
+                       delay: 0.25,
+                       options: [.curveEaseInOut, .repeat, .autoreverse],
+                       animations: {
+            UIView.setAnimationRepeatCount(3.0)
             self.goalTutorial.alpha = 1.0
             self.buttonTutorial.alpha = 1.0
             
             self.goalTutorial.frame.origin.x += 15
+        }, completion: { finished in
+            self.buttonTutorial.isHidden = true
+            self.goalTutorial.isHidden = true
         }
         
         )
