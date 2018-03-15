@@ -17,24 +17,100 @@ class FirstViewController: UIViewController {
     //MARK: User Defaults
     lazy var currentLevel = defaults.integer(forKey: "CurrentLevel")
     
-    //MARK: Level Select Buttons
+    //MARK: Level Select Button Outlets
+    @IBOutlet weak var btn1Outlet: UIButton!
+    @IBOutlet weak var btn2Outlet: UIButton!
+    @IBOutlet weak var btn3Outlet: UIButton!
+    @IBOutlet weak var btn4Outlet: UIButton!
+    @IBOutlet weak var btn5Outlet: UIButton!
+    @IBOutlet weak var btn6Outlet: UIButton!
+    @IBOutlet weak var btn7Outlet: UIButton!
+    @IBOutlet weak var btn8Outlet: UIButton!
+    @IBOutlet weak var btn9Outlet: UIButton!
+    
+    //MARK: Level Select Buttons functions
     @IBAction func btn1(_ sender: Any) {
         
         performSegue(withIdentifier: "startGame", sender: btn1)
     }
     
     @IBAction func btn2(_ sender: Any) {
+        
+        performSegue(withIdentifier: "startGame", sender: btn2)
     }
     
     @IBAction func btn3(_ sender: Any) {
+        
+        performSegue(withIdentifier:  "startGame", sender: btn3)
     }
     
+    @IBAction func btn4(_ sender: Any) {
+        
+        performSegue(withIdentifier: "startGame", sender: btn4)
+    }
+    
+    @IBAction func btn5(_ sender: Any) {
+        
+        performSegue(withIdentifier: "startGame", sender: btn5)
+    }
+    
+    @IBAction func btn6(_ sender: Any) {
+        
+        performSegue(withIdentifier: "startGame", sender: btn6)
+    }
+    
+    @IBAction func btn7(_ sender: Any) {
+        
+        performSegue(withIdentifier: "startGame", sender: btn7)
+    }
+    
+    @IBAction func btn8(_ sender: Any) {
+        
+        performSegue(withIdentifier: "startGame", sender: btn8)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let doneImage = UIImage(named: "done-black") as UIImage?
+        let btnArray: [UIButton] = [btn1Outlet, btn2Outlet, btn3Outlet, btn4Outlet, btn5Outlet, btn6Outlet, btn7Outlet, btn8Outlet, btn9Outlet]
         
+        switch currentLevel {
+        
+        case 0...19:
+            for i in 1...8 {
+                btnArray[i].isEnabled = false
+            }
+            
+        case 20...29:
+            btn1Outlet.setImage(doneImage, for: .normal)
+            
+            for i in 2...8 {
+                btnArray[i].isEnabled = false
+            }
+            
+            
+        case 30...39:
+            btn1Outlet.setImage(doneImage, for: .normal)
+            btn2Outlet.setImage(doneImage, for: .normal)
+            
+            for i in 2...8 {
+                btnArray[i].isEnabled = false
+            }
+            
+        case 40...49:
+            btn1Outlet.setImage(doneImage, for: .normal)
+            btn2Outlet.setImage(doneImage, for: .normal)
+            btn3Outlet.setImage(doneImage, for: .normal)
+            
+            for i in 3...8 {
+                btnArray[i].isEnabled = false
+            }
+            
+        default:
+            print("You broke it")
+        }
     }
 
     override func didReceiveMemoryWarning() {

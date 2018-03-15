@@ -192,6 +192,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7J-DK-X03">
                                                 <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                                 <state key="normal" backgroundImage="Image-4"/>
+                                                <connections>
+                                                    <action selector="btn4:" destination="kBL-YZ-omu" eventType="touchUpInside" id="lNY-1i-uks"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmV-47-XkF">
                                                 <rect key="frame" x="67.999999999999986" y="0.0" width="48" height="48"/>
@@ -240,6 +243,15 @@
                         <viewLayoutGuide key="safeArea" id="nDk-fV-CBq"/>
                     </view>
                     <connections>
+                        <outlet property="btn1Outlet" destination="5dy-bU-tth" id="f0K-vc-Uev"/>
+                        <outlet property="btn2Outlet" destination="QIC-J4-gdF" id="Afg-aT-Yf4"/>
+                        <outlet property="btn3Outlet" destination="MtM-0s-yzn" id="Qpl-cC-H6I"/>
+                        <outlet property="btn4Outlet" destination="d7J-DK-X03" id="Mdj-h2-bpJ"/>
+                        <outlet property="btn5Outlet" destination="GmV-47-XkF" id="0iN-gs-Rye"/>
+                        <outlet property="btn6Outlet" destination="34a-BG-xBp" id="6QF-Ip-L9H"/>
+                        <outlet property="btn7Outlet" destination="wez-vU-pfv" id="OSI-mW-rbE"/>
+                        <outlet property="btn8Outlet" destination="HrM-We-GO0" id="Qje-rL-CmZ"/>
+                        <outlet property="btn9Outlet" destination="eLf-It-Pql" id="fS2-aX-50E"/>
                         <segue destination="qby-Ao-cO0" kind="show" identifier="startGame" id="qRW-ER-V5q"/>
                     </connections>
                 </viewController>
@@ -508,6 +520,6 @@
         <image name="settingsDark" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dN0-hS-1ZX"/>
+        <segue reference="qm0-la-SWc"/>
     </inferredMetricsTieBreakers>
 </document>
