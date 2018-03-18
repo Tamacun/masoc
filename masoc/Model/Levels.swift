@@ -206,12 +206,12 @@ class Level {
             self.btn5 = .red
             self.btn6 = .red
             
-            self.array1 = [.red, .blue, .yellow, .orange, .purple, .green]
-            self.array2 = [.blue, .orange, .red, .yellow, .purple, .green]
+            self.array1 = [.red, .yellow, .purple, .green]
+            self.array2 = [.blue, .orange, .red, .yellow, .purple, .green, .black]
             self.array3 = [.red, .blue, .orange, .yellow, .purple, .green]
-            self.array4 = [.red, .orange, .blue, .yellow, .purple, .green]
-            self.array5 = [.red, .purple, .orange, .blue, .yellow, .green]
-            self.array6 = [.red, .orange, .yellow, .green, .purple, .blue]
+            self.array4 = [.red, .orange, .blue, .yellow, .purple, .green, .black]
+            self.array5 = [.red, .purple, .orange, .blue, .green]
+            self.array6 = [.red, .orange, .yellow, .green, .purple, .blue, .black]
             
             self.goal = .green
             
