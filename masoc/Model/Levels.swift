@@ -198,6 +198,23 @@ class Level {
             
             self.goal = .orange
             
+        case 11:
+            self.btn1 = .red
+            self.btn2 = .blue
+            self.btn3 = .red
+            self.btn4 = .red
+            self.btn5 = .red
+            self.btn6 = .red
+            
+            self.array1 = [.red, .yellow, .blue, .orange, .purple, .green]
+            self.array2 = [.blue, .orange, .red, .yellow, .purple, .green]
+            self.array3 = [.red, .blue, .orange, .yellow, .purple, .green]
+            self.array4 = [.red, .orange, .blue, .yellow, .purple, .green]
+            self.array5 = [.red, .purple, .orange, .blue, .yellow, .green]
+            self.array6 = [.red, .orange, .yellow, .green, .purple, .blue]
+            
+            self.goal = .green
+            
         default:
             print("Love you baby")
         }
