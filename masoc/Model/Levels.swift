@@ -206,7 +206,7 @@ class Level {
             self.btn5 = .red
             self.btn6 = .red
             
-            self.array1 = [.red, .yellow, .blue, .orange, .purple, .green]
+            self.array1 = [.red, .blue, .yellow, .orange, .purple, .green]
             self.array2 = [.blue, .orange, .red, .yellow, .purple, .green]
             self.array3 = [.red, .blue, .orange, .yellow, .purple, .green]
             self.array4 = [.red, .orange, .blue, .yellow, .purple, .green]
